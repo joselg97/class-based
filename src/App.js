@@ -1,22 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.module.css';
 import Person from './Person/Person';
-import styled from 'styled-components';
+import classes from './App.module.css';
 
 
-const StyledButton = styled.button`
-      background-color: ${props => props.alt ? 'red':'green'};
-      color:white;
-      font:inherit;
-      border:1px solid blue;
-      padding:8px;
-      cursor:pointer;
-      
-      &:hover{
-        background-color:  ${props => props.alt ? 'tomato':'lightgreen'};
-        color: black;
-      }
-`;
+
+
 
 class App extends Component {
   state = {
@@ -94,6 +83,7 @@ render() {
     };*/
 
     let persons = null;
+    let btnClass = '';
     if(this.state.displayNames){
       persons = (
       <div>
@@ -106,29 +96,28 @@ render() {
         })}
       </div>
       );   
-        //buttonOneStyle.backgroundColor = 'red';
-        //buttonOneStyle[':hover'] = {
-          //backgroundColor: 'tomato',
-          //color: 'black'
+        
+      btnClass = classes.Red;
         
     }
 
-    let classes = [];
+    let assignedClasses = [];
+    //changed name from classes since classes now refers to our input on top of the .css file
     if(this.state.persons.length <= 2){
-      classes.push('red'); //classes = ['red']
+      assignedClasses.push(classes.red); //classes = ['red']
     }
     if(this.state.persons.length <= 1){
-      classes.push('bold');//classes = ['red', 'bold']
+      assignedClasses.push(classes.bold);//classes = ['red', 'bold']
     }
     
 
     return (
      
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm a React App</h1>
-        <p className={classes.join(' ')}>This is really working again!</p>
+        <p className={assignedClasses.join(' ')}>This is really working again!</p>
         
-        <StyledButton  alt={this.state.displayNames} onClick={this.toggleUsersHandler}>togglePersons</StyledButton>
+        <button className={btnClass} onClick={this.toggleUsersHandler}>togglePersons</button>
         
           {persons}
          
