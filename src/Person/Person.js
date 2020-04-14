@@ -5,6 +5,10 @@ import classes from './Person.module.css'
 
 //This method actually returns a react components
 const person = ( props ) => {
+    const rnd = Math.random();
+    if(rnd > 0.92){
+        throw new Error('Something went terribly wrong' );
+    }
    //if you go above the 500 px the boxes will stay at 450px but if the screen is small it will go to the 60% person.css has
     return (
         //<div className="Person" style={style}>
