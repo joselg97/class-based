@@ -5,11 +5,7 @@ import classes from './Person.module.css'
 
 //This method actually returns a react components
 const person = ( props ) => {
-    const style = {
-        '@media (min-width: 500px)':{
-            width: '450px'
-        }
-    };//if you go above the 500 px the boxes will stay at 450px but if the screen is small it will go to the 60% person.css has
+   //if you go above the 500 px the boxes will stay at 450px but if the screen is small it will go to the 60% person.css has
     return (
         //<div className="Person" style={style}>
         <div className={classes.Person}>
